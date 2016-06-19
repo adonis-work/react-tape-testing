@@ -8,34 +8,46 @@ import jsxEquals from 'tape-jsx-equals'
 
 const test = addAssertions(tape, {jsxEquals})
 
-// Component to test
+// komponenta na testiranju
 import Button from '../components/Button'
 
-test('Button props', t => {
-  // Shallow rendering: Render React element only *one* level deep
-  const component = createComponent.shallow(<Button label='foo' />)
+test('Button parametri', t => {
+  // shallow render: ne rendra podelementov
+  let c = createComponent.shallow(<Button />)
 
-  // Test component props and content
+  // uporaba defaultov
   t.equal(
-    component.props.className,
+    c.props.className,
     'default-class',
-    'props.className mora uporabiti default če ni definiran')
+    'class mora uporabiti default-class, če ni definiran')
 
-  t.equal(component.text,
-    'foo',
-    'props.label se mora rendrati kot vsebina')
+  t.equal(
+    c.text,
+    'button',
+    'label mora uporabiti button, če ni definiran')
+
+  // render vsebine
+  c = createComponent.shallow(<Button label='gumb' />)
+
+  t.equal(
+    c.text,
+    'gumb',
+    'label se uporabi za vsebino')
 
   t.end()
 })
 
 test('Button render', t => {
-  // Test rendered output
+  // rendranje DOM objekta
   const r = createRenderer()
   r.render(<Button label='share' />)
-  const result = r.getRenderOutput()
-  t.jsxEquals(result, <div className='default-class'>
-                        share
-                      </div>)
+  t.jsxEquals(
+    r.getRenderOutput(),
+     <div className='default-class'>
+       share
+     </div>,
+     'props.label se mora rendrati kot vsebina, nedefiniran class se mora rendrati kot default-class'
+   )
 
   t.end()
 })

@@ -1,12 +1,8 @@
 'use strict';
 
-import React from 'react';
+import React, {Component} from 'react';
 
-class Button extends React.Component {
-  static propTypes = {
-    label: React.PropTypes.string,
-    className: React.PropTypes.string
-  }
+export default class Button extends Component {
   static defaultProps = {
     label: 'button',
     className: 'default-class'
@@ -14,6 +10,7 @@ class Button extends React.Component {
   constructor(props) {
     super(props)
   }
+
   render() {
     return (
       <div className={this.props.className}>
@@ -22,4 +19,3 @@ class Button extends React.Component {
     )
   }
 }
-export default Button
