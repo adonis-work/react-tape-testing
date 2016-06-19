@@ -28,8 +28,8 @@
     "babel-tape-runner": "^2.0.0",
     "extend-tape": "^1.1.0",
     "faucet": "0.0.1",
-    "react": "^0.14.3",
-    "react-addons-test-utils": "^0.14.3",
+    "react": "^0.15",
+    "react-addons-test-utils": "^0.15",
     "react-unit": "^1.1.1",
     "tape": "^4.2.2",
     "tape-jsx-equals": "^1.0.0"
