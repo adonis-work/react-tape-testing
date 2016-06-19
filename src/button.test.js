@@ -9,7 +9,7 @@ import jsxEquals from 'tape-jsx-equals'
 const test = addAssertions(tape, {jsxEquals})
 
 // komponenta na testiranju
-import Button from '../components/Button'
+import Button from './button'
 
 test('Button parametri', t => {
   // shallow render: ne rendra podelementov

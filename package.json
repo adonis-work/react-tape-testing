@@ -10,7 +10,7 @@
   },
   "description": "Unit testing React components with Tape in ES6",
   "scripts": {
-    "test": "babel-tape-runner tests/**/*.js | faucet"
+    "test": "babel-tape-runner src/**/*.test.js | faucet"
   },
   "keywords": [
     "tape",
